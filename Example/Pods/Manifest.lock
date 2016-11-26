@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FlexiCollectionViewLayout: 067745f49d914b4e5f010e724a8956958bd7590b
+  FlexiCollectionViewLayout: c4667ca7742a3e6827fcc8d02bdd0c6e71dba017
 
 PODFILE CHECKSUM: a04386c0851ac519b4cfbef7e18982d9fa525084
 
