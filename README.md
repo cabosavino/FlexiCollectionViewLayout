@@ -22,7 +22,7 @@ pod "FlexiCollectionViewLayout"
 
 ## Author
 
-Deepak Kumar, deepak.kumar@accedo.tv
+Deepak Kumar, deepak.hebbar@gmail.com
 
 ## License
 
