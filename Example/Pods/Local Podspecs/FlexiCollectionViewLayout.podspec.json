@@ -9,10 +9,10 @@
     "file": "LICENSE"
   },
   "authors": {
-    "Deepak Kumar": "deepak.kumar@accedo.tv"
+    "Deepak Kumar": "deepak.hebbar@gmail.com"
   },
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/FlexiCollectionViewLayout.git",
+    "git": "https://github.com/dPackumar/FlexiCollectionViewLayout.git",
     "tag": "0.1.0"
   },
   "platforms": {

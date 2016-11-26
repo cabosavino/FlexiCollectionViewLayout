@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import Foundation
 /**
  Conform to the protocol and implement the required meothod for the layout to work.
  */
-@objc protocol FlexiCollectionViewLayoutDelegate: UICollectionViewDelegateFlowLayout {
+@objc public protocol FlexiCollectionViewLayoutDelegate: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: FlexiCollectionViewLayout, sizeForFlexiItemAt indexPath: IndexPath) -> ItemSizeAttributes
     
@@ -23,13 +24,13 @@ import UIKit
 
 /// - Regular: Regular sqaure cells.
 /// - Large: Cells which have width or height more than regular cells.
-@objc enum FlexiCellSize: Int {
+@objc public enum FlexiCellSize: Int {
     case regular
     case large
 }
 
 //A class to be used for return type object, to be compatible with objc, as objc does not support tuples or structs.
-@objc class ItemSizeAttributes: NSObject {
+@objc open class ItemSizeAttributes: NSObject {
     
     ///the size of the regular cell, actual cell size may vary to fit the collection view width properly. Size of bigger cells will be calculated based on this.
     let itemSize: CGSize
@@ -43,7 +44,7 @@ import UIKit
     ///is the height multiplier, regular cells will have factor of 1, bigger cells should return its size * regular cells height
     let heightFactor: Int
     
-    init(itemSize: CGSize, layoutSize: FlexiCellSize, widthFactor: Int, heightFactor: Int) {
+    public init(itemSize: CGSize, layoutSize: FlexiCellSize, widthFactor: Int, heightFactor: Int) {
         self.itemSize = itemSize
         self.layoutSize = layoutSize
         self.widthFactor = widthFactor
@@ -54,7 +55,7 @@ import UIKit
 /**
  A UICollectionViewLayout subclass which can render dynamic collection view layouts with items of irregular heights and widths. Conform to FlexiCollectionViewLayoutDelegate delegate for layout to work.
  */
-@objc final class FlexiCollectionViewLayout: UICollectionViewLayout {
+@objc open class FlexiCollectionViewLayout: UICollectionViewLayout {
     
     weak var delegate: FlexiCollectionViewLayoutDelegate? {
         get {
@@ -71,7 +72,7 @@ import UIKit
     private var bufferArray = [(CGRect, Int)]()
     
     //MARK: UICollectionViewLayout Lifecycle methods
-    override func prepare() {
+    override open func prepare() {
         super.prepare()
         resetLayout()
         
@@ -137,7 +138,7 @@ import UIKit
         }
     }
     
-    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+    override open func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         var layoutAttributesInRect: [UICollectionViewLayoutAttributes] = []
         
         for sectionAttributes in layoutInfo {
@@ -156,16 +157,16 @@ import UIKit
         return layoutAttributesInRect
     }
     
-    override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+    override open func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         let list = layoutInfo[indexPath.section]
         return list[indexPath.item]
     }
     
-    override func layoutAttributesForSupplementaryView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+    override open func layoutAttributesForSupplementaryView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         return supplementaryAttributes[indexPath]
     }
     
-    override var collectionViewContentSize : CGSize {
+    override open var collectionViewContentSize : CGSize {
         let width = collectionViewContentWidth()
         var height: CGFloat = 0.0
         
@@ -178,7 +179,7 @@ import UIKit
         return CGSize(width: width, height: height)
     }
     
-    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
+    override open func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
         let oldBounds = self.collectionView!.bounds
         if newBounds.width != oldBounds.width {
             return true
