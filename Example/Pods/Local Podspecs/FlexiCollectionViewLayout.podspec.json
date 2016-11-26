@@ -1,0 +1,22 @@
+{
+  "name": "FlexiCollectionViewLayout",
+  "version": "0.1.0",
+  "summary": "A short description of FlexiCollectionViewLayout.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/FlexiCollectionViewLayout",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Deepak Kumar": "deepak.kumar@accedo.tv"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/FlexiCollectionViewLayout.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "FlexiCollectionViewLayout/Classes/**/*"
+}

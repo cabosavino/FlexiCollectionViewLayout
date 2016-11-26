@@ -1,0 +1,16 @@
+PODS:
+  - FlexiCollectionViewLayout (0.1.0)
+
+DEPENDENCIES:
+  - FlexiCollectionViewLayout (from `../`)
+
+EXTERNAL SOURCES:
+  FlexiCollectionViewLayout:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  FlexiCollectionViewLayout: 067745f49d914b4e5f010e724a8956958bd7590b
+
+PODFILE CHECKSUM: a04386c0851ac519b4cfbef7e18982d9fa525084
+
+COCOAPODS: 1.1.1
