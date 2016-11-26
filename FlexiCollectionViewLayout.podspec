@@ -24,8 +24,8 @@ FlexiCollectionViewLayout is a subclass of UICollectionViewLayout for creating a
   s.homepage         = 'https://github.com/dPackumar/FlexiCollectionViewLayout'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Deepak Kumar' => 'deepak.kumar@accedo.tv' }
-  s.source           = { :git => 'https://github.com/<GITHUB_USERNAME>/FlexiCollectionViewLayout.git', :tag => s.version.to_s }
+  s.author           = { 'Deepak Kumar' => 'deepak.hebbar@gmail.com' }
+  s.source           = { :git => 'https://github.com/dPackumar/FlexiCollectionViewLayout.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
