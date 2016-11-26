@@ -20,6 +20,16 @@ it, simply add the following line to your Podfile:
 pod "FlexiCollectionViewLayout"
 ```
 
+## Screen Shots
+------------
+iPhone:
+
+![Screenshot](https://github.com/dPackumar/FlexiCollectionViewLayout/blob/master/screenshots/iPhone.jpg)
+
+iPad:
+
+![Screenshot](https://github.com/dPackumar/FlexiCollectionViewLayout/blob/master/screenshots/iPad.jpg)
+
 ## Author
 
 Deepak Kumar, deepak.hebbar@gmail.com
