@@ -13,8 +13,6 @@ FlexiCollectionViewLayout is a subclass of UICollectionViewLayout for creating a
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## Requirements
-
 ## Installation
 
 FlexiCollectionViewLayout is available through [CocoaPods](http://cocoapods.org). To install
