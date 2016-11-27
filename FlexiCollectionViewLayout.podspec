@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'FlexiCollectionViewLayout'
-  s.version          = '0.2.0'
+  s.version          = '0.3.0'
   s.summary          = 'A subclass of UICollectionViewLayout for displaying the non conventional Vertical flow layout with different sizes'
 
 # This description is used to generate tags and improve search results.
