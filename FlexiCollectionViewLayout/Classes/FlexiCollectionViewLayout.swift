@@ -44,6 +44,7 @@ import Foundation
     ///is the height multiplier, regular cells will have factor of 1, bigger cells should return its size * regular cells height
     let heightFactor: Int
     
+    ///pass in the base item size as CGSize and layout size as Large for any item bigger than base item.
     public init(itemSize: CGSize, layoutSize: FlexiCellSize, widthFactor: Int, heightFactor: Int) {
         self.itemSize = itemSize
         self.layoutSize = layoutSize
@@ -187,7 +188,7 @@ import Foundation
         return false
     }
     
-    //MARK: Mosaic Layout Attributes generators
+    //MARK: Layout Attributes generators
     fileprivate func mosaicLayoutAttributesForIndexPath(_ indexPath: IndexPath, cellSize: ItemSizeAttributes, column: NSInteger, width: CGFloat, insets: UIEdgeInsets, interItemSpacing: CGFloat) -> UICollectionViewLayoutAttributes {
         let layoutAttributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
         layoutAttributes.frame = mosaicCellRectForIndexPath(indexPath, size: cellSize, column: column, width: width, insets: insets, interItemSpacing: interItemSpacing)
@@ -274,7 +275,6 @@ import Foundation
         }
         let bufferObject = (bufferObjectOrigin, (column + bufferIndex - 1))
         bufferArray.append(bufferObject)
-        //bufferArray.insert(bufferObjectSize, atIndex: bufferIndex-1)
     }
     
     private func getLayoutAttributesForSupplementaryViewOfKind(kind: String, indexPath: IndexPath, insets: UIEdgeInsets, width: CGFloat) -> UICollectionViewLayoutAttributes {
@@ -298,7 +298,7 @@ import Foundation
         return layoutAttributes
     }
     
-    // MARK: Cell Size calucators
+    //MARK: Cell Size calucators
     fileprivate func cellSizeForIndexPath(_ indexPath: IndexPath, itemSize: ItemSizeAttributes, interItemSpacing: CGFloat, insets: UIEdgeInsets) -> CGSize {
         var cellHeight = itemSize.itemSize.height
         var cellWidth = itemSize.itemSize.width
@@ -409,7 +409,7 @@ import Foundation
         columnHeightsPerSection[section] = columnHeights
     }
     
-    // MARK: Custom UICollectionViewDelegate data fetching functions.
+    //MARK: Custom UICollectionViewDelegate data fetching functions.
     fileprivate func sizeForItemAtIndexPath(_ indexPath:IndexPath) -> ItemSizeAttributes {
         if delegate != nil {
             return delegate!.collectionView(collectionView!, layout: FlexiCollectionViewLayout(), sizeForFlexiItemAt: indexPath)
@@ -445,7 +445,7 @@ import Foundation
         return 0
     }
     
-    // MARK: Reset
+    //MARK: Reset
     private func resetLayout() {
         self.columnHeightsPerSection.removeAll()
         self.layoutInfo.removeAll()

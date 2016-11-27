@@ -5,6 +5,10 @@
 [![License](https://img.shields.io/cocoapods/l/FlexiCollectionViewLayout.svg?style=flat)](http://cocoapods.org/pods/FlexiCollectionViewLayout)
 [![Platform](https://img.shields.io/cocoapods/p/FlexiCollectionViewLayout.svg?style=flat)](http://cocoapods.org/pods/FlexiCollectionViewLayout)
 
+## Summary
+
+FlexiCollectionViewLayout is a subclass of UICollectionViewLayout for creating a vertical flow layout with different size items. Idea is to make it dynamic and make it work like the photos section in Messages App. Apps using the layout can define what size of the items that they need and can get the results as shwon in screenshots. This layout will be useful for photos, Media(movies or videos) kind of applications where you can have a fancy layout and stand out in a croud of million apps in app store. Apps can use a bigger size items for prominent cells and probably less height but spanning whole width cell for navigational or advertisement items.
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
