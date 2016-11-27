@@ -9,10 +9,12 @@
 import UIKit
 import Foundation
 /**
- Conform to the protocol and implement the required meothod for the layout to work.
+ Conform to the protocol and implement the required method for the layout to work.
  */
 @objc public protocol FlexiCollectionViewLayoutDelegate: UICollectionViewDelegateFlowLayout {
-    
+    /**
+        Return the cell size attributes
+     */
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: FlexiCollectionViewLayout, sizeForFlexiItemAt indexPath: IndexPath) -> ItemSizeAttributes
     
     @objc optional func collectionView (_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
@@ -22,8 +24,10 @@ import Foundation
                                         heightForFooterInSection section: Int) -> CGFloat
 }
 
-/// - Regular: Regular sqaure cells.
-/// - Large: Cells which have width or height more than regular cells.
+/**
+    - Parameter regular: Regular sqaure cells.
+    - Parameter large: Cells which have width or height more than regular cells.
+ */
 @objc public enum FlexiCellSize: Int {
     case regular
     case large
@@ -31,20 +35,17 @@ import Foundation
 
 //A class to be used for return type object, to be compatible with objc, as objc does not support tuples or structs.
 @objc open class ItemSizeAttributes: NSObject {
-    
-    ///the size of the regular cell, actual cell size may vary to fit the collection view width properly. Size of bigger cells will be calculated based on this.
     let itemSize: CGSize
-    
-    ///If the cell size is (1,1) return .Regular, anything other than that return .Large
     let layoutSize: FlexiCellSize
-    
-    ///is the width multiplier, regular cells will have factor of 1, bigger cells should return its size * regular cells width
     let widthFactor: Int
-    
-    ///is the height multiplier, regular cells will have factor of 1, bigger cells should return its size * regular cells height
     let heightFactor: Int
-    
-    ///pass in the base item size as CGSize and layout size as Large for any item bigger than base item.
+    /**
+        Pass in the collection view cell layout information
+        - Parameter itemSize: The size of the base cell, actual cell size may vary to fit the collection view width properly. Size of bigger cells will be calculated based on this.
+        - Parameter layoutSize: If the cell size is bigger than the base cell size then return .large else return .regular
+        - Parameter widthFactor: The multipling factor of the current cell compared to base cell. If the cell width has to be 3 times the base cell width then return 3
+        - Parameter heightFactor: The multipling factor of the current cell compared to base cell. If the cell height has to be 3 times the base cell height then return 3
+     */
     public init(itemSize: CGSize, layoutSize: FlexiCellSize, widthFactor: Int, heightFactor: Int) {
         self.itemSize = itemSize
         self.layoutSize = layoutSize
@@ -102,7 +103,7 @@ import Foundation
                 let indexOfShortestColumn = indexOfShortestColumnInSection(sectionIndex)
                 
                 if itemSize.layoutSize == .large {
-                    let attributes = mosaicLayoutAttributesForIndexPath(cellIndexPath, cellSize: itemSize, column: indexOfShortestColumn, width: width, insets: sectionInset, interItemSpacing: interitemSpacing)
+                    let attributes = flexiLayoutAttributesForIndexPath(cellIndexPath, cellSize: itemSize, column: indexOfShortestColumn, width: width, insets: sectionInset, interItemSpacing: interitemSpacing)
                     let columnHeight = columnHeightsPerSection[sectionIndex][indexOfShortestColumn]
                     let regularSize = regularCellSize(cellIndexPath, interItemSpacing: interitemSpacing, insets: sectionInset)
                     
@@ -119,7 +120,7 @@ import Foundation
                     }
                     itemAttributes.append(attributes)
                 } else {
-                    let attributes = mosaicLayoutAttributesForIndexPath(cellIndexPath, cellSize: itemSize, column: indexOfShortestColumn, width: width, insets: sectionInset, interItemSpacing: interitemSpacing)
+                    let attributes = flexiLayoutAttributesForIndexPath(cellIndexPath, cellSize: itemSize, column: indexOfShortestColumn, width: width, insets: sectionInset, interItemSpacing: interitemSpacing)
                     let columnHeight = columnHeightsPerSection[sectionIndex][indexOfShortestColumn]
                     
                     // No need to increase the column height if the cell was added to buffer placeholder as its height is already increased by large cell.
@@ -189,13 +190,13 @@ import Foundation
     }
     
     //MARK: Layout Attributes generators
-    fileprivate func mosaicLayoutAttributesForIndexPath(_ indexPath: IndexPath, cellSize: ItemSizeAttributes, column: NSInteger, width: CGFloat, insets: UIEdgeInsets, interItemSpacing: CGFloat) -> UICollectionViewLayoutAttributes {
+    fileprivate func flexiLayoutAttributesForIndexPath(_ indexPath: IndexPath, cellSize: ItemSizeAttributes, column: NSInteger, width: CGFloat, insets: UIEdgeInsets, interItemSpacing: CGFloat) -> UICollectionViewLayoutAttributes {
         let layoutAttributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
-        layoutAttributes.frame = mosaicCellRectForIndexPath(indexPath, size: cellSize, column: column, width: width, insets: insets, interItemSpacing: interItemSpacing)
+        layoutAttributes.frame = flexiCellRectForIndexPath(indexPath, size: cellSize, column: column, width: width, insets: insets, interItemSpacing: interItemSpacing)
         return layoutAttributes
     }
     
-    fileprivate func mosaicCellRectForIndexPath(_ indexPath:IndexPath, size: ItemSizeAttributes ,column: NSInteger, width: CGFloat, insets: UIEdgeInsets, interItemSpacing: CGFloat) -> CGRect {
+    fileprivate func flexiCellRectForIndexPath(_ indexPath:IndexPath, size: ItemSizeAttributes ,column: NSInteger, width: CGFloat, insets: UIEdgeInsets, interItemSpacing: CGFloat) -> CGRect {
         let sectionIndex = indexPath.section
         let cellSize = cellSizeForIndexPath(indexPath, itemSize: size, interItemSpacing: interItemSpacing, insets: insets)
         var cellHeight = cellSize.height
