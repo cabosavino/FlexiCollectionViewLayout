@@ -1,5 +1,5 @@
 PODS:
-  - FlexiCollectionViewLayout (0.2.0)
+  - FlexiCollectionViewLayout (0.3.0)
 
 DEPENDENCIES:
   - FlexiCollectionViewLayout (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FlexiCollectionViewLayout: 0809b3ee5835382148c180d37ea1b72b95cb6e0b
+  FlexiCollectionViewLayout: 34594ff3b7ec04c5f45675bcaaf5ed2c62997f0c
 
 PODFILE CHECKSUM: 8e53e6d78388ede2938a8cf2435d344974749ef8
 
