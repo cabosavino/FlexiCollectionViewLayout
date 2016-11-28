@@ -19,5 +19,5 @@
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "FlexiCollectionViewLayout/Classes/**/*"
+  "source_files": "Sources/FlexiCollectionViewLayout.swift"
 }
