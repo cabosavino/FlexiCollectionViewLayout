@@ -15,8 +15,9 @@
     "git": "https://github.com/dPackumar/FlexiCollectionViewLayout.git",
     "tag": "0.3.0"
   },
+  "social_media_url": "https://twitter.com/DeepakHebbar",
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "FlexiCollectionViewLayout/Classes/**/*"
+  "source_files": "Sources/FlexiCollectionViewLayout.swift"
 }

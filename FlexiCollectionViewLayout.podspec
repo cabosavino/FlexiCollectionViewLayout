@@ -13,5 +13,5 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/dPackumar/FlexiCollectionViewLayout.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/DeepakHebbar'
   s.ios.deployment_target = '8.0'
-  s.source_files = 'FlexiCollectionViewLayout/Classes/**/*'
+  s.source_files = 'Sources/FlexiCollectionViewLayout.swift'
 end
