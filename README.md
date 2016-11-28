@@ -35,14 +35,16 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Installation
 
-* Cocoapods
+* Cocoapods:
+
 FlexiCollectionViewLayout is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
 pod "FlexiCollectionViewLayout"
 ```
-* Manual
+* Manual:
+
 Add the FlexiCollectionViewLayout.swift to your project and thats all is needed.
 
 ## Author
