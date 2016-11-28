@@ -72,33 +72,34 @@ final class ViewController: UICollectionViewController, FlexiCollectionViewLayou
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: FlexiCollectionViewLayout, sizeForFlexiItemAt indexPath: IndexPath) -> ItemSizeAttributes {
+        let width = cellWidth()
         switch indexPath.row {
         case 0:
-            return ItemSizeAttributes(itemSize: CGSize(width: 120, height: 100), layoutSize: FlexiCellSize.large, widthFactor: 2, heightFactor: 2)
+            return ItemSizeAttributes(itemSize: CGSize(width: width, height: 100), layoutSize: FlexiCellSize.large, widthFactor: 2, heightFactor: 2)
         case 1:
-            return ItemSizeAttributes(itemSize: CGSize(width: 120, height: 100), layoutSize: FlexiCellSize.regular, widthFactor: 1, heightFactor: 1)
+            return ItemSizeAttributes(itemSize: CGSize(width: width, height: 100), layoutSize: FlexiCellSize.regular, widthFactor: 1, heightFactor: 1)
         case 2:
-            return ItemSizeAttributes(itemSize: CGSize(width: 120, height: 100), layoutSize: FlexiCellSize.regular, widthFactor: 1, heightFactor: 1)
+            return ItemSizeAttributes(itemSize: CGSize(width: width, height: 100), layoutSize: FlexiCellSize.regular, widthFactor: 1, heightFactor: 1)
         case 3:
-            return ItemSizeAttributes(itemSize: CGSize(width: 120, height: 100), layoutSize: FlexiCellSize.large, widthFactor: 3, heightFactor: 1)
+            return ItemSizeAttributes(itemSize: CGSize(width: width, height: 100), layoutSize: FlexiCellSize.large, widthFactor: 3, heightFactor: 1)
         case 4:
-            return ItemSizeAttributes(itemSize: CGSize(width: 120, height: 100), layoutSize: FlexiCellSize.large, widthFactor: 1, heightFactor: 3)
+            return ItemSizeAttributes(itemSize: CGSize(width: width, height: 100), layoutSize: FlexiCellSize.large, widthFactor: 1, heightFactor: 3)
         case 5:
-            return ItemSizeAttributes(itemSize: CGSize(width: 120, height: 100), layoutSize: FlexiCellSize.regular, widthFactor: 1, heightFactor: 1)
+            return ItemSizeAttributes(itemSize: CGSize(width: width, height: 100), layoutSize: FlexiCellSize.regular, widthFactor: 1, heightFactor: 1)
         case 6:
-            return ItemSizeAttributes(itemSize: CGSize(width: 120, height: 100), layoutSize: FlexiCellSize.regular, widthFactor: 1, heightFactor: 1)
+            return ItemSizeAttributes(itemSize: CGSize(width: width, height: 100), layoutSize: FlexiCellSize.regular, widthFactor: 1, heightFactor: 1)
         case 7:
-            return ItemSizeAttributes(itemSize: CGSize(width: 120, height: 100), layoutSize: FlexiCellSize.large, widthFactor: 2, heightFactor: 1)
+            return ItemSizeAttributes(itemSize: CGSize(width: width, height: 100), layoutSize: FlexiCellSize.large, widthFactor: 2, heightFactor: 1)
         case 8:
-            return ItemSizeAttributes(itemSize: CGSize(width: 120, height: 100), layoutSize: FlexiCellSize.regular, widthFactor: 1, heightFactor: 1)
+            return ItemSizeAttributes(itemSize: CGSize(width: width, height: 100), layoutSize: FlexiCellSize.regular, widthFactor: 1, heightFactor: 1)
         case 9:
-            return ItemSizeAttributes(itemSize: CGSize(width: 120, height: 100), layoutSize: FlexiCellSize.regular, widthFactor: 1, heightFactor: 1)
+            return ItemSizeAttributes(itemSize: CGSize(width: width, height: 100), layoutSize: FlexiCellSize.regular, widthFactor: 1, heightFactor: 1)
         case 10:
-            return ItemSizeAttributes(itemSize: CGSize(width: 120, height: 100), layoutSize: FlexiCellSize.large, widthFactor: 1, heightFactor: 2)
+            return ItemSizeAttributes(itemSize: CGSize(width: width, height: 100), layoutSize: FlexiCellSize.large, widthFactor: 1, heightFactor: 2)
         case 11:
-            return ItemSizeAttributes(itemSize: CGSize(width: 120, height: 100), layoutSize: FlexiCellSize.large, widthFactor: 2, heightFactor: 2)
+            return ItemSizeAttributes(itemSize: CGSize(width: width, height: 100), layoutSize: FlexiCellSize.large, widthFactor: 2, heightFactor: 2)
         default:
-            return ItemSizeAttributes(itemSize: CGSize(width: 120, height: 100), layoutSize: FlexiCellSize.regular, widthFactor: 1, heightFactor: 1)
+            return ItemSizeAttributes(itemSize: CGSize(width: width, height: 100), layoutSize: FlexiCellSize.regular, widthFactor: 1, heightFactor: 1)
         }
     }
     
@@ -120,12 +121,8 @@ final class ViewController: UICollectionViewController, FlexiCollectionViewLayou
     
     //MARK: Helpers
     
-    fileprivate func sizeBasedOnSizeClass() -> CGFloat {
-        if DeviceUtilsHelper().isDeviceiPhoneInPortrait(traitCollection) {
-            return self.collectionView!.bounds.size.width - 10
-        } else {
-            return (self.collectionView!.bounds.size.width - 14)/3
-        }
+    fileprivate func cellWidth() -> CGFloat {
+        return self.collectionView!.bounds.size.width / 4
     }
 }
 
