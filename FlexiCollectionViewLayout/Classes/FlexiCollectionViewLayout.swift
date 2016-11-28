@@ -33,7 +33,7 @@ import Foundation
     case large
 }
 
-//A class to be used for return type object, to be compatible with objc, as objc does not support tuples or structs.
+///A class used for return type object in FlexiCollectionViewLayoutDelegate.
 @objc open class ItemSizeAttributes: NSObject {
     let itemSize: CGSize
     let layoutSize: FlexiCellSize
@@ -448,9 +448,9 @@ import Foundation
     
     //MARK: Reset
     private func resetLayout() {
-        self.columnHeightsPerSection.removeAll()
-        self.layoutInfo.removeAll()
+        columnHeightsPerSection.removeAll()
+        layoutInfo.removeAll()
         supplementaryAttributes.removeAll()
-        self.bufferArray.removeAll(keepingCapacity: false)
+        bufferArray.removeAll(keepingCapacity: false)
     }
 }
