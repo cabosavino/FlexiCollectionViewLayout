@@ -16,6 +16,8 @@ internal let cellReuseIdentifier = "HKCellReuseID"
 final class ViewController: UICollectionViewController {
     
     fileprivate let hongKongPhotos = [UIImage(named: "beach"), UIImage(named: "boat"),UIImage(named: "brucelee"),UIImage(named: "dragonboat"),UIImage(named: "icc"),UIImage(named: "icclightshow"),UIImage(named: "ifc"),UIImage(named: "island"),UIImage(named: "lantau"),UIImage(named: "oceanpark"),UIImage(named: "orange"),UIImage(named: "panda"),UIImage(named: "sunset"),UIImage(named: "thepeak"),UIImage(named: "tram")]
+    fileprivate let interItemSpacing: CGFloat = 2
+    fileprivate let edgeInsets = UIEdgeInsets.zero
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +39,7 @@ final class ViewController: UICollectionViewController {
     //MARK: Helpers
     
     fileprivate func cellWidth() -> CGFloat {
-        return self.collectionView!.bounds.size.width / 4
+        return (self.collectionView!.bounds.size.width - (interItemSpacing * 2) - edgeInsets.left - edgeInsets.right ) / 3
     }
 }
 //MARK: UICollectionViewDatasource
@@ -123,11 +125,11 @@ extension ViewController: FlexiCollectionViewLayoutDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 1, bottom: 0, right: 1)
+        return edgeInsets
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 2
+        return interItemSpacing
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, heightForFooterInSection section: Int) -> CGFloat {
