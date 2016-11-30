@@ -1,0 +1,12 @@
+PODS:
+  - FlexiCollectionViewLayout (1.0.1)
+
+DEPENDENCIES:
+  - FlexiCollectionViewLayout
+
+SPEC CHECKSUMS:
+  FlexiCollectionViewLayout: 13a7f46ac79e01fa6d7aac9524cb8db7871f144b
+
+PODFILE CHECKSUM: da31bc20071e1c6bbba5ebd5b75decc6f062edc6
+
+COCOAPODS: 1.1.1
