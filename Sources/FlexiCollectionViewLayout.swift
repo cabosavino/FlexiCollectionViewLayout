@@ -419,15 +419,15 @@ import Foundation
     }
     
     fileprivate func interitemSpacingForSectionAtIndex(_ index: Int) -> CGFloat {
-        if delegate != nil {
-            return delegate!.collectionView!(collectionView!, layout: self, minimumInteritemSpacingForSectionAt: index)
+        if let flexiDelegate = delegate, let spacing = flexiDelegate.collectionView?(self.collectionView!, layout: self, minimumInteritemSpacingForSectionAt: index) {
+            return spacing
         }
-        return 2
+        return 0
     }
     
     fileprivate func insetForSectionAtIndex(_ index: Int) -> UIEdgeInsets {
-        if delegate != nil {
-            return delegate!.collectionView!(collectionView!, layout: self, insetForSectionAt: index)
+        if let flexiDelegate = delegate, let inset = flexiDelegate.collectionView?(self.collectionView!, layout: self, insetForSectionAt: index) {
+            return inset
         }
         return UIEdgeInsets.zero
     }
