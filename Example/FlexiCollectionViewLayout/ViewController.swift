@@ -10,10 +10,12 @@ import UIKit
 import FlexiCollectionViewLayout
 
 internal let cellReuseIdentifier = "HKCellReuseID"
-
-final class ViewController: UICollectionViewController, FlexiCollectionViewLayoutDelegate {
+/**
+ Example project to get started with FlexiCollectionViewLayout
+ */
+final class ViewController: UICollectionViewController {
     
-    private let hongKongPhotos = [UIImage(named: "beach"), UIImage(named: "boat"),UIImage(named: "brucelee"),UIImage(named: "dragonboat"),UIImage(named: "icc"),UIImage(named: "icclightshow"),UIImage(named: "ifc"),UIImage(named: "island"),UIImage(named: "lantau"),UIImage(named: "oceanpark"),UIImage(named: "orange"),UIImage(named: "panda"),UIImage(named: "sunset"),UIImage(named: "thepeak"),UIImage(named: "tram")]
+    fileprivate let hongKongPhotos = [UIImage(named: "beach"), UIImage(named: "boat"),UIImage(named: "brucelee"),UIImage(named: "dragonboat"),UIImage(named: "icc"),UIImage(named: "icclightshow"),UIImage(named: "ifc"),UIImage(named: "island"),UIImage(named: "lantau"),UIImage(named: "oceanpark"),UIImage(named: "orange"),UIImage(named: "panda"),UIImage(named: "sunset"),UIImage(named: "thepeak"),UIImage(named: "tram")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +33,15 @@ final class ViewController: UICollectionViewController, FlexiCollectionViewLayou
         collectionView?.register(UINib(nibName: "HeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "HeaderReuseID")
         collectionView?.register(UINib(nibName: "FooterView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: "FooterReuseID")
     }
-
-    // MARK: UICollectionViewDataSource
+    
+    //MARK: Helpers
+    
+    fileprivate func cellWidth() -> CGFloat {
+        return self.collectionView!.bounds.size.width / 4
+    }
+}
+//MARK: UICollectionViewDatasource
+extension ViewController {
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 3
@@ -70,7 +79,10 @@ final class ViewController: UICollectionViewController, FlexiCollectionViewLayou
         }
         return UICollectionReusableView()
     }
-    
+}
+
+//MARK: FlexiCollectionViewLayoutDelegate
+extension ViewController: FlexiCollectionViewLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: FlexiCollectionViewLayout, sizeForFlexiItemAt indexPath: IndexPath) -> ItemSizeAttributes {
         let size = CGSize(width: cellWidth(), height: 100)
         switch indexPath.row {
@@ -104,10 +116,10 @@ final class ViewController: UICollectionViewController, FlexiCollectionViewLayou
         
         /**
          if indexPath.item % 6 == 0 {
-            return ItemSizeAttributes(itemSize: size, layoutSize: .large, widthFactor: 2, heightFactor: 2)
+         return ItemSizeAttributes(itemSize: size, layoutSize: .large, widthFactor: 2, heightFactor: 2)
          }
          return ItemSizeAttributes(itemSize: size, layoutSize: .regular, widthFactor: 1, heightFactor: 1)
-        */
+         */
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -124,12 +136,6 @@ final class ViewController: UICollectionViewController, FlexiCollectionViewLayou
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, heightForHeaderInSection section: Int) -> CGFloat {
         return 45
-    }
-    
-    //MARK: Helpers
-    
-    fileprivate func cellWidth() -> CGFloat {
-        return self.collectionView!.bounds.size.width / 4
     }
 }
 
