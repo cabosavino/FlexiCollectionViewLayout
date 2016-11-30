@@ -1,7 +1,7 @@
 use_frameworks!
 
 target 'FlexiCollectionViewLayout_Example' do
-  pod "FlexiCollectionViewLayout"
+  pod 'FlexiCollectionViewLayout', :path => ‘../../’
 
   target 'FlexiCollectionViewLayout_Tests' do
     inherit! :search_paths
