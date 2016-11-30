@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4bx-79-cvf">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Hong Kong-->
+        <scene sceneID="zm9-J0-eUm">
+            <objects>
+                <collectionViewController id="RTe-qa-I0A" customClass="ViewController" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Rm8-EM-7j5">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="0n9-8x-eIK">
+                            <size key="itemSize" width="120" height="120"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HKCellReuseID" id="g6P-dp-QsZ" customClass="HKCell">
+                                <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tms-HD-7ag">
+                                            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MD6-1h-Ia9">
+                                            <rect key="frame" x="8" y="88" width="104" height="24"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="MD6-1h-Ia9" firstAttribute="leading" secondItem="g6P-dp-QsZ" secondAttribute="leadingMargin" id="1Fh-Pa-0FO"/>
+                                    <constraint firstItem="tms-HD-7ag" firstAttribute="leading" secondItem="g6P-dp-QsZ" secondAttribute="leading" id="6rb-Fc-MCe"/>
+                                    <constraint firstAttribute="bottom" secondItem="tms-HD-7ag" secondAttribute="bottom" id="F6A-gh-8iH"/>
+                                    <constraint firstItem="MD6-1h-Ia9" firstAttribute="trailing" secondItem="g6P-dp-QsZ" secondAttribute="trailingMargin" id="MMa-mr-tiE"/>
+                                    <constraint firstItem="MD6-1h-Ia9" firstAttribute="bottom" secondItem="g6P-dp-QsZ" secondAttribute="bottomMargin" id="eD2-Wy-7qn"/>
+                                    <constraint firstAttribute="trailing" secondItem="tms-HD-7ag" secondAttribute="trailing" id="m76-vm-9Hc"/>
+                                    <constraint firstItem="tms-HD-7ag" firstAttribute="top" secondItem="g6P-dp-QsZ" secondAttribute="top" id="ndQ-yR-BjC"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="tms-HD-7ag" id="rb2-vF-anH"/>
+                                    <outlet property="textLabel" destination="MD6-1h-Ia9" id="Hov-QT-Dwd"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="RTe-qa-I0A" id="bj3-cD-KPH"/>
+                            <outlet property="delegate" destination="RTe-qa-I0A" id="a6M-VB-tqF"/>
+                        </connections>
+                    </collectionView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" title="Hong Kong" id="Mzl-nD-vuc"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mku-xQ-aHO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="776.79999999999995" y="-302.6986506746627"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="VRz-tw-c6O">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4bx-79-cvf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ymu-ff-Ypc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.83838649610000004" green="0.28908178340000001" blue="0.27367100010000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="RTe-qa-I0A" kind="relationship" relationship="rootViewController" id="ohi-Aw-Mmy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CeZ-fU-9ny" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-220" y="-316"/>
+        </scene>
+    </scenes>
+</document>
