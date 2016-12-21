@@ -246,7 +246,8 @@ import Foundation
                 var localColumnHeightsPerSection = columnHeightsPerSection[sectionIndex]
                 columnHeight = columnHeightsPerSection[sectionIndex][shortestNextIndex]
                 for index in 0 ..< size.widthFactor {
-                    localColumnHeightsPerSection[index + shortestNextIndex] = columnHeight + cellHeight + interItemSpacing
+                    let position = min(index + shortestNextIndex, localColumnHeightsPerSection.count - 1)
+                    localColumnHeightsPerSection[position] = columnHeight + cellHeight + interItemSpacing
                 }
                 columnHeightsPerSection[sectionIndex] = localColumnHeightsPerSection
             }
